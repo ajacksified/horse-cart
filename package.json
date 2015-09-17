@@ -1,0 +1,25 @@
+{
+  "name": "horse-cart",
+  "version": "0.0.1",
+  "description": "An app framework built around horse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajacksified/horse-cart.git"
+  },
+  "keywords": [
+    "horse"
+  ],
+  "author": "Jack Lawson <jack@exoplay.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajacksified/horse-cart/issues"
+  },
+  "homepage": "https://github.com/ajacksified/horse-cart#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}

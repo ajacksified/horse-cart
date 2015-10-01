@@ -35,7 +35,9 @@ function app (appConstructor) {
       // keep track of the landing page
       this.initialUrl = this.fullPathName();
 
-      this.modifyContext = this.modifycontext || function (ctx) { return ctx; };
+      this.modifyContext = this.modifyContext || function (ctx) {
+        return Object.assign({}, bootstrap.ctx, ctx);
+      };
     }
 
     initialize() {
@@ -182,7 +184,7 @@ function app (appConstructor) {
           return el.parentNode;
         }
 
-        return findLinkParent(el.parentNode);
+        return ClientApp.findLinkParent(el.parentNode);
       }
     }
   }

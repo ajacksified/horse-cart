@@ -1,6 +1,6 @@
 {
   "name": "horse-cart",
-1 "version": "0.0.2",
+  "version": "0.0.2",
   "description": "An app framework built around horse",
   "main": "index.js",
   "scripts": {

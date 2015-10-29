@@ -152,8 +152,8 @@ function app (appConstructor) {
     }
 
     redirect(url) {
+      this.pushState(null, null, url);
       this.render(this.fullPathName(), false, this.modifyContext).then((props) => {
-        this.pushState(null, props.title || null, url);
         this.setTitle(props.title);
       });
     }

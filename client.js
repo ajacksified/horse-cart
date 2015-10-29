@@ -35,9 +35,9 @@ function app (appConstructor) {
       // keep track of the landing page
       this.initialUrl = this.fullPathName();
 
-      this.modifyContext = this.modifyContext || function (ctx) {
-        return Object.assign({}, bootstrap.ctx, ctx);
-      };
+      this.modifyContext = config.modifyContext ? config.modifyContext.bind(this) : function (ctx) {
+        return Object.assign({}, this.getState('ctx'), ctx);
+      }.bind(this);
     }
 
     initialize() {
@@ -117,6 +117,9 @@ function app (appConstructor) {
           this.initialUrl = this.fullPathName();
 
           this.render(this.initialUrl, false, this.modifyContext).then((props) => {
+            this.dom.$body.scrollTop = 0;
+            this.scrollCache[this.initialUrl] = 0;
+
             this.setTitle(props.title);
           });
         });
@@ -149,8 +152,8 @@ function app (appConstructor) {
     }
 
     redirect(url) {
-      this.pushState(null, props.title || null, url);
       this.render(this.fullPathName(), false, this.modifyContext).then((props) => {
+        this.pushState(null, props.title || null, url);
         this.setTitle(props.title);
       });
     }

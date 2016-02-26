@@ -137,7 +137,7 @@ function app (appConstructor) {
           }.bind(this));
 
           this.initialUrl = href;
-        }.bind(this));
+        });
       }
     }
 
